@@ -2,6 +2,6 @@
 # tasks file for ansible-rhv-vm-role
 
 - name: Create RHV VMs
-  include: deploy.yml
+  include: deploy.yml vmname={{item}}
   loop: "{{ vm_name.split(',') }}"
   tags: deploy

@@ -7,7 +7,7 @@
        
        - name: Create Virtual Machine Disk
          ovirt_disk:
-           name: "{{ item }}_disk"
+           name: "{{ vmame }}_disk"
            size: "{{ vm_disk_size }}"
            format: cow
            storage_domain: "{{ rhv_storage_domain }}"
@@ -19,7 +19,7 @@
            cluster: "{{ rhv_cluster }}"
            cd_iso: rhel-server-7.8-x86_64-dvd.iso
            storage_domain: "{{ rhv_storage_domain }}"
-           name: "{{ item }}"
+           name: "{{ vmname }}"
            state: present
            cpu_cores: "{{ vm_cpus }}"
            memory: "{{ vm_mem }}"
@@ -44,7 +44,7 @@
       - name: Make sure VM is removed if a failure happens
         ovirt_vm:
           auth: "{{ ovirt_auth }}"
-          name: "{{ item }}"
+          name: "{{ vmname }}"
           state: absent
     always:
       - name: Always revoke the SSO token
