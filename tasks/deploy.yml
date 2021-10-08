@@ -7,7 +7,7 @@
        
        - name: Create Virtual Machine Disk
          ovirt_disk:
-           name: "{{ vmame }}_disk"
+           name: "{{ vmname }}_disk"
            size: "{{ vm_disk_size }}"
            format: cow
            storage_domain: "{{ rhv_storage_domain }}"
